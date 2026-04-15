@@ -16,6 +16,11 @@ jobs:
         with:
           ref: adf_publish
 
+      - name: Show files in repo
+        run: |
+          pwd
+          ls -R
+
       - name: Azure Login
         uses: azure/login@v2
         with:
