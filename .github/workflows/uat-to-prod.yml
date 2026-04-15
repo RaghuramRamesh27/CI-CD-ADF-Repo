@@ -8,19 +8,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout adf_publish branch
         uses: actions/checkout@v4
+        with:
+          ref: adf_publish
 
       - name: Azure Login
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy ARM to PROD
+      - name: Deploy ARM Template to PROD
         uses: Azure/arm-deploy@v2
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           resourceGroupName: prod-ci-cd-demo-rg
-          template: ./ARMTemplateForFactory.json
+          template: ./rr703dev-ci-cd-adf/ARMTemplateForFactory.json
           parameters: >
             factoryName=rr703prod-ci-cd-adf
