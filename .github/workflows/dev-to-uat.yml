@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout adf_publish branch
         uses: actions/checkout@v4
+        with:
+          ref: adf_publish
 
       - name: Azure Login
         uses: azure/login@v2
