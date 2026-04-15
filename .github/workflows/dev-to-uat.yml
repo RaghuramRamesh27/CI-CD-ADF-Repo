@@ -18,7 +18,9 @@ jobs:
 
       - name: Show files in repo
         run: |
+          echo "Current path:"
           pwd
+          echo "All files:"
           ls -R
 
       - name: Azure Login
