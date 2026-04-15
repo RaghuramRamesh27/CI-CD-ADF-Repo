@@ -1,6 +1,9 @@
 name: DEV to UAT ADF Deployment
 
 on:
+  push:
+    branches:
+      - adf_publish
   workflow_dispatch:
 
 jobs:
