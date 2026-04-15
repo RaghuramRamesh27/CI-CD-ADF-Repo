@@ -1,0 +1,55 @@
+{
+	"name": "PL_CICD_Demo",
+	"properties": {
+		"description": "CICD test Pipeline ",
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "env",
+						"value": "DEV Pipeline Running"
+					}
+				],
+				"typeProperties": {
+					"variableName": "pipelineReturnValue",
+					"value": [
+						{
+							"key": "env",
+							"value": {
+								"type": "String",
+								"content": "DEV"
+							}
+						}
+					],
+					"setSystemVariable": true
+				}
+			},
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 5
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-04-15T19:44:16Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

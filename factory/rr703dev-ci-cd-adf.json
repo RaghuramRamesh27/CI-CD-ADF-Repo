@@ -1,0 +1,9 @@
+{
+	"name": "rr703dev-ci-cd-adf",
+	"location": "eastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6a43c5a0-e22a-472d-98c3-b5ed6be8418b",
+		"tenantId": "187ca15f-54e0-4673-86f6-b6d7f4c75eef"
+	}
+}
