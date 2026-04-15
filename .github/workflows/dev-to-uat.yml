@@ -4,13 +4,14 @@ on:
   push:
     branches:
       - adf_publish
+  workflow_dispatch:
 
 jobs:
   deploy-uat:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Azure Login
@@ -18,7 +19,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy ARM to UAT
+      - name: Deploy ARM Template to UAT
         uses: Azure/arm-deploy@v2
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
